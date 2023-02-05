@@ -1,0 +1,39 @@
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/backends: '{"k8s1-4b1a22a8-default-vote-5000-bdfe6074":"Unknown","k8s1-4b1a22a8-kube-system-default-http-backend-80-7d3498e4":"HEALTHY"}'
+    ingress.kubernetes.io/forwarding-rule: k8s2-fr-rbyyhki1-default-ingress-vote-gupkbynx
+    ingress.kubernetes.io/target-proxy: k8s2-tp-rbyyhki1-default-ingress-vote-gupkbynx
+    ingress.kubernetes.io/url-map: k8s2-um-rbyyhki1-default-ingress-vote-gupkbynx
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{},"name":"ingress-vote","namespace":"default"},"spec":{"rules":[{"host":null,"http":{"paths":[{"backend":{"service">
+  creationTimestamp: "2023-02-04T14:33:28Z"
+  finalizers:
+  - networking.gke.io/ingress-finalizer-V2
+  generation: 1
+  name: ingress-vote
+  namespace: default
+  resourceVersion: "688266"
+  uid: 7bfb9108-cb40-49c3-b7a1-1f34a2a09469
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: vote
+            port:
+              number: 5000
+        path: /
+        pathType: Prefix
+status:
+  loadBalancer:
+    ingress:
+    - ip: 35.184.138.170
+
+
